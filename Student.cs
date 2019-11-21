@@ -5,11 +5,12 @@ namespace StudentExercise
 {
     public class Student
     {
-        public Student(string first, string last, string slack)
+        public Student(string first, string last, string slack, Cohort cohort)
         {
             FirstName = first;
             LastName = last;
             Slack = slack;
+            CurrentCohort = cohort;
         }
 
         public string FirstName { get; }
