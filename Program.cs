@@ -65,7 +65,7 @@ namespace StudentExercise
 
             foreach (Student student in students)
             {
-                Console.WriteLine($"Student: {student.FirstName} {student.LastName}");
+                Console.WriteLine($"Student: {student._firstName} {student._lastName}");
                 Console.WriteLine("Exercises:");
                 foreach (Exercise exercise in student.Exercises)
                 {
@@ -101,33 +101,33 @@ namespace StudentExercise
 
             foreach (var item in listOfStudentsInCohort)
             {
-                Console.WriteLine($"{item.FirstName} {item.LastName} is in Cohort 35");
+                Console.WriteLine($"{item._firstName} {item._lastName} is in Cohort 35");
             }
 
             var listOfInstructors = cohorts.Where(c => c.Name == "Cohort 35").SelectMany(c => c.InstructorList).Distinct().ToList();
             foreach (var item2 in listOfInstructors)
             {
-                Console.WriteLine($"{item2.FirstName} {item2.LastName}: Instructors assigned for cohort-35");
+                Console.WriteLine($"{item2._firstName} {item2._lastName}: Instructors assigned for cohort-35");
             }
 
-            var studentsByLastName = students.OrderBy(x => x.LastName).ToList();
+            var studentsByLastName = students.OrderBy(x => x._lastName).ToList();
 
             foreach (var item3 in studentsByLastName)
             {
-                Console.WriteLine(item3.LastName);
+                Console.WriteLine(item3._lastName);
             }
 
             var studentWithoutExercises = students.Where(student => student.Exercises.Count == 0).ToList();
 
             foreach (var item4 in studentWithoutExercises)
             {
-                Console.WriteLine($"These student does't have any exercise assigned: {item4.FirstName} {item4.LastName}");
+                Console.WriteLine($"These student does't have any exercise assigned: {item4._firstName} {item4._lastName}");
             }
 
             var studentWithMostExercises = students.Select(student => new
             {
-                firstName = student.FirstName,
-                    lastName = student.LastName,
+                firstName = student._firstName,
+                    lastName = student._lastName,
                     numberOfExercises = student.Exercises.Count()
             }).OrderByDescending(x => x.numberOfExercises).FirstOrDefault();
 
